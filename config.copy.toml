@@ -1,0 +1,20 @@
+concurrent = 2
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "Local runner"
+  url = "https://gitlab.com/"
+  token = "LNHg9ju5u4owKUT6BxZj"
+  executor = "docker"
+  [runners.custom_build_dir]
+  [runners.docker]
+    tls_verify = false
+    image = "docker"
+    privileged = false
+    disable_cache = false
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+  [runners.cache]
+    Insecure = false
